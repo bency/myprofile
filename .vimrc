@@ -1,6 +1,7 @@
-" Last Update:2012/09/09 13:41:54                                                           set nu
-
+" Last Update:2013/09/23 00:28:19 
 set bg=dark
+
+set et
 
 set nowrap
 
@@ -16,17 +17,15 @@ set hlsearch
 
 set ruler
 
-set tabstop=4
-
-set shiftwidth=4
-
-set softtabstop=4
-
 set modeline
 
 set autoindent
 
 set enc=utf-8
+
+"set showtabline=2
+
+set tabpagemax=25
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
@@ -36,35 +35,27 @@ if has("autocmd")
 
   augroup module
 
+    autocmd BufRead,BufNewFile *.php    set filetype=php
+
     autocmd BufRead,BufNewFile *.module set filetype=php
 
-    autocmd BufRead,BufNewFile *.mod set filetype=php
+    autocmd BufRead,BufNewFile *.mod    set filetype=php
 
-    autocmd BufRead,BufNewFile *.inc set filetype=php
+    autocmd BufRead,BufNewFile *.inc    set filetype=php
 
     autocmd BufRead,BufNewFile *.install set filetype=php
 
-    autocmd BufRead,BufNewFile *.test set filetype=php
+    autocmd BufRead,BufNewFile *.test   set filetype=php
 
-    autocmd BufRead,BufNewFile *.xaml set filetype=xml
+    autocmd BufRead,BufNewFile *.xaml   set filetype=xml
+
+    autocmd BufRead,BufNewFile *.css    set shiftwidth=2
+
+    autocmd BufRead,BufNewFile *.html   set shiftwidth=2
 
   augroup END
 
 endif
-
-" status bar
-
-set laststatus=2
-
-set statusline=%2*%m
-
-set statusline+=%4*%<\%5*[%{&encoding}, " encoding
-
-set statusline+=%{&fileformat}] " file format
-
-set statusline+=%4*\ %1*[%F]
-
-set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 
 highlight User1 ctermfg=red
 
@@ -90,7 +81,7 @@ function! AutoUpdateTheLastUpdateInfo()
 
         let s:update_str = matchstr(getline(s:lu), s:regexp)
 
-        call setline(s:lu, s:update_str . strftime("%Y/%m/%d %H:%M:%S "))
+        call setline(s:lu, s:update_str . strftime("%Y/%m/%d %H:%M:%S"))
 
         call setpos(".", s:original_pos)
 
@@ -199,6 +190,39 @@ map <C-t><C-w> :tabclose<CR>
 
 cmap cd. lcd %:p:h
 
+colo desert
 
+set t_Co=256
 
+set ts=4 sw=4 st=4
 
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
+
+" status bar
+
+set laststatus=2
+
+set statusline=%2*%m
+
+set statusline+=%4*%<\%5*[%{&encoding}, " encoding
+
+set statusline+=%{&fileformat}] " file format
+
+set statusline+=%4*\ %1*[%F]
+
+set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
+
+" auto git pull and reload files in current vim procedure
+
+fun! PullAndRefresh()
+    set noconfirm
+    !git pull
+    bufdo e!
+    set confirm
+    endfun
+
+nmap <leader>gr call PullAndRefresh()

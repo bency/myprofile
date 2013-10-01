@@ -1,5 +1,10 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2013/08/16 10:30:06 
+# Last Update:2013/10/01 15:04:11
+
+function chtitle {
+
+    echo -n -e "\033]0;$1\007"
+}
 
 # prompt for git status
 function git_branch {
