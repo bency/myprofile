@@ -1,0 +1,8 @@
+startup_message off
+caption always "%{=u .r} %-w%<%{=ub .Y}%n %t%{=u .r}%+w "
+hardstatus alwaysignore
+hardstatus alwayslastline "%{= .K} [%l]%<%=%{=b .B}%n %t-%{= .Y}$USER%{= .R}@%H %=%{= .m} %Y/%m/%d%{= .M} %0c "
+vbell off
+bell_msg 'Bell in window %n^G'
+bind u encoding utf8 utf8
+defscrollback 5000
