@@ -1,4 +1,4 @@
-" Last Update:2013/09/23 00:28:19 
+" Last Update:2013/10/17 12:11:09
 set bg=dark
 
 set et
@@ -180,11 +180,15 @@ map <S-L> gt
 
 " new tab
 
-map <C-t><C-t> :tabnew<CR>
+"map <C-t><C-t> :tabnew<CR>
 
 " close tab
 
-map <C-t><C-w> :tabclose<CR>
+"map <C-t><C-w> :tabclose<CR>
+
+nnoremap <silent> <C-t><S-H> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+
+nnoremap <silent> <C-t><S-L> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 " :cd. change working directory to that of the current file
 
