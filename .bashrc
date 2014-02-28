@@ -1,12 +1,16 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/02/28 13:40:46
+# Last Update:2014/02/28 17:42:46
 
 function tmux_prompt {
     
-    TOTAL=$(tmux show-messages | tail -1 | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
-    CURRENT=$(tmux display-message -p | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
-    CURRENT_P=$(tmux display-message -p | grep -o '\ \([0-9]\) ' | cut -d' ' -f2)
+if [ -n "$TMUX" ]; then
+    message=$(tmux display-message -p)
+    
+    TOTAL=$(echo $message | tail -1 | grep -o '\[[0-9a-z]*\] \([0-9]\)' | cut -d' ' -f2)
+    CURRENT=$(echo $message | grep -o '\[[0-9a-z]*\] \([0-9]\)' | cut -d' ' -f2)
+    CURRENT_P=$(echo $message | grep -o '\ \([0-9]\) ' | cut -d' ' -f2)
     echo \($CURRENT:$CURRENT_P\)/$TOTAL
+fi
 }
 
 function chtitle {
