@@ -1,5 +1,13 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2013/11/25 18:48:35
+# Last Update:2014/02/28 13:40:46
+
+function tmux_prompt {
+    
+    TOTAL=$(tmux show-messages | tail -1 | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
+    CURRENT=$(tmux display-message -p | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
+    CURRENT_P=$(tmux display-message -p | grep -o '\ \([0-9]\) ' | cut -d' ' -f2)
+    echo \($CURRENT:$CURRENT_P\)/$TOTAL
+}
 
 function chtitle {
 
@@ -58,7 +66,13 @@ function git_since_last_commit {
     fi
 }
 
-PS1="\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]\$ "
+# locale setting
+
+export LC_ALL=zh_TW.UTF-8
+
+export EDITOR=/usr/local/bin/vim
+
+PS1="\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\] \$(tmux_prompt)\n\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]\$ "
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
@@ -86,8 +100,17 @@ alias ta='tmux attach'
 alias slab='ssh 140.138.176.201'
 alias sirl='ssh -p 17320 70640-serve@irl.ee.yzu.edu.tw'
 alias sjccf='ssh jccf.com.tw'
+alias saqua='ssh aqua.srv.pixnet'
+alias sirc='ssh -p 222 irc.pixnet.tw'
 alias :q='echo "You are now in bash not in VIM!!!";exit'
 set -o emacs
 set -o ignoreeof
 #alias grep='grep --color=always '
 . ~/.nvm/nvm.sh
+
+# C-W rease word till slash
+stty werase undef
+bind '"\C-w":backward-kill-word'
+
+alias grep='grep --color=always '
+alias work='cd ~/work'
