@@ -100,6 +100,8 @@ alias ta='tmux attach'
 alias slab='ssh -p 17320 140.138.176.201'
 alias sirl='ssh -p 17320 70640-serve@irl.ee.yzu.edu.tw'
 alias sjccf='ssh jccf.com.tw'
+alias saqua='ssh aqua.srv.pixnet'
+alias sirc='ssh -p 222 irc.pixnet.tw'
 alias :q='echo "You are now in bash not in VIM!!!";exit'
 set -o emacs
 set -o ignoreeof
