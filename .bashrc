@@ -84,17 +84,18 @@ if [ $os == "Linux" ];then
 else
     alias ls='ls -GF'
 fi
+
 alias d='ls'
 alias dl='ls -lht'
 alias dla='ls -alht'
 alias dal='dla'
 alias da='ls -a'
 #alias s="screen -e '\`~'"
-alias s="sc_alias"
+alias s="screen -e '\`~'"
 alias sr="screen -e '\`~' -r"
 alias sx="screen -e '\`~' -x"
 
-alias t='tm_alias'
+alias t='tmux'
 alias ta='tmux attach'
 
 alias slab='ssh -p 17320 140.138.176.201'
