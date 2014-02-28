@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2013/10/01 15:04:11
+# Last Update:2013/11/25 18:48:35
 
 function chtitle {
 
@@ -83,10 +83,11 @@ alias sx="screen -e '\`~' -x"
 alias t='tm_alias'
 alias ta='tmux attach'
 
-alias slab='ssh -p 17320 140.138.176.201'
+alias slab='ssh 140.138.176.201'
 alias sirl='ssh -p 17320 70640-serve@irl.ee.yzu.edu.tw'
 alias sjccf='ssh jccf.com.tw'
 alias :q='echo "You are now in bash not in VIM!!!";exit'
 set -o emacs
 set -o ignoreeof
 #alias grep='grep --color=always '
+. ~/.nvm/nvm.sh
