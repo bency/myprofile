@@ -105,4 +105,10 @@ alias sirc='ssh -p 222 irc.pixnet.tw'
 alias :q='echo "You are now in bash not in VIM!!!";exit'
 set -o emacs
 set -o ignoreeof
-#alias grep='grep --color=always '
+
+# C-W rease word till slash
+stty werase undef
+bind '"\C-w":backward-kill-word'
+
+alias grep='grep --color=always '
+alias work='cd ~/work'
