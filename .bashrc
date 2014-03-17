@@ -1,13 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/02/27 16:33:42
-
-function tmux_prompt {
-    
-    TOTAL=$(tmux show-messages | tail -1 | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
-    CURRENT=$(tmux display-message -p | grep -o '\[[0-9]\] \([0-9]\)' | cut -d' ' -f2)
-    CURRENT_P=$(tmux display-message -p | grep -o '\ \([0-9]\) ' | cut -d' ' -f2)
-    echo \($CURRENT:$CURRENT_P\)/$TOTAL
-}
+# Last Update:2014/03/17 10:58:09
 
 function chtitle {
 
@@ -72,7 +64,7 @@ export LC_ALL=zh_TW.UTF-8
 
 export EDITOR=/usr/local/bin/vim
 
-PS1="\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\] \$(tmux_prompt)\n\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]\$ "
+PS1="⎛\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n⎝\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
