@@ -1,4 +1,4 @@
-" Last Update:2013/10/17 12:11:09
+" Last Update:2014/02/17 17:08:49
 set bg=dark
 
 set et
@@ -9,9 +9,25 @@ syntax on
 
 set bs=2
 
+set sw=4
+
+set softtabstop=4
+
+set secure
+
+set cindent
+
+set encoding=utf8
+
+set fileencoding=utf8
+
+"set fileencodings=utf8,cp950,latin1
+
+set expandtab
+
 set nowrap
 
-set cursorline
+"set cursorline
 
 set hlsearch
 
