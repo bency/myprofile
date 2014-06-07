@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/03/17 10:58:09
+# Last Update:2014/06/07 21:27:06
 
 function chtitle {
 
@@ -10,14 +10,14 @@ function chtitle {
 function git_branch {
 
 ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-remote=$(git remote -v | grep fetch | cut -d '	' -f1)
-#commit=$(git log --pretty=format:'%h' -n 1)
-if [ -n $remote ];then
-    #echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
-    echo -e "($remote/"${ref#refs/heads/}") ";
+remote=$(git remote -v | grep fetch | awk '{print $1}' | tr '\n' ' ')
+commit=$(git log --pretty=format:'%h' -n 1)
+if [ -n "$remote" ];then
+    echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+#echo -e "(${remote}/"${ref#refs/heads/}") ";
 else
-    #echo "("${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
-    echo "("${ref#refs/heads/}") ";
+    echo -e "("${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+#echo "("${ref#refs/heads/}") ";
 fi
 }
 
@@ -62,7 +62,7 @@ function git_since_last_commit {
 
 export LC_ALL=zh_TW.UTF-8
 
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 PS1="⎛\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n⎝\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
 
