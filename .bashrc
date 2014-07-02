@@ -64,6 +64,10 @@ export LC_ALL=zh_TW.UTF-8
 
 export EDITOR=/usr/local/bin/vim
 
+# PIXNET setting
+
+export PIXLIBRARYPATH=~/work/pixlibrary/init.inc.php
+
 PS1="⎛\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n⎝\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
 
 # Make bash check its window size after a process completes
