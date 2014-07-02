@@ -1,9 +1,7 @@
-" Last Update:2014/02/17 17:08:49
+"" Last Update:2014/05/22 15:10:09
 set bg=dark
 
 set et
-
-set nowrap
 
 syntax on
 
@@ -65,9 +63,9 @@ if has("autocmd")
 
     autocmd BufRead,BufNewFile *.xaml   set filetype=xml
 
-    autocmd BufRead,BufNewFile *.css    set shiftwidth=2
+    "autocmd BufRead,BufNewFile *.css    set shiftwidth=2
 
-    autocmd BufRead,BufNewFile *.html   set shiftwidth=2
+    "autocmd BufRead,BufNewFile *.html   set shiftwidth=2
 
   augroup END
 
@@ -137,6 +135,14 @@ nmap <c-h> <c-w>h<c-w><bar>
 " move to and maximize the right split 
 
 nmap <c-l> <c-w>l<c-w><bar>
+
+" move screen up and keep cursor position
+
+nmap <c-e> <c-e>j
+
+" move screen up and keep cursor position
+
+nmap <c-y> <c-y>k
 
 set wmw=0                     " set the min width of a window to 0 so we can maximize others
 
