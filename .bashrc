@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/07/07 11:25:03
+# Last Update:2014/07/07 11:32:26
 
 # prompt for git status
 function git_branch {
@@ -95,7 +95,7 @@ function new_tag {
         echo "No ticket number specified!";
     else
         echo "git tag -a before$1";
-        git tag -a before$1;
+        git tag before$1 -m bofore$1;
         echo "git push origin before$1";
         git push origin before$1;
     fi
