@@ -11,13 +11,13 @@ function git_branch {
 
 ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
 remote=$(git remote -v | grep fetch | cut -d '	' -f1)
-#commit=$(git log --pretty=format:'%h' -n 1)
+commit=$(git log --pretty=format:'%h' -n 1)
 if [ -n $remote ];then
-    #echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
-    echo -e "($remote/"${ref#refs/heads/}") ";
+    echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+    #echo -e "($remote/"${ref#refs/heads/}") ";
 else
-    #echo "("${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
-    echo "("${ref#refs/heads/}") ";
+    echo "("${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+    #echo "("${ref#refs/heads/}") ";
 fi
 }
 
@@ -68,7 +68,7 @@ export EDITOR=/usr/local/bin/vim
 
 export PIXLIBRARYPATH=~/work/pixlibrary/init.inc.php
 
-PS1="⎛\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n⎝\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
+PS1="\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
