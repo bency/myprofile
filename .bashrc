@@ -54,6 +54,24 @@ function git_since_last_commit {
     fi
 }
 
+function new_ticket {
+    if [[ -z "$1" ]] ;then
+        echo "No ticket number specified!";
+    else
+        echo "git push origin master:ticket$1";
+        git push origin master:ticket$1;
+    fi
+}
+
+function got_ticket {
+    if [[ -z "$1" ]] ;then
+        echo "No ticket number specified!";
+    else
+        echo "git checkout ticket$1";
+        git checkout ticket$1;
+    fi
+}
+
 # locale setting
 
 export LC_ALL=zh_TW.UTF-8
