@@ -252,3 +252,4 @@ fun! PullAndRefresh()
     endfun
 
 nmap <leader>gr call PullAndRefresh()
+filetype indent on
