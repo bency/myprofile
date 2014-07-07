@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/03/17 10:58:09
+# Last Update:2014/07/02 14:06:20
 
 function chtitle {
 
