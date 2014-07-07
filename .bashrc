@@ -1,17 +1,18 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/07/07 10:54:27
+# Last Update:2014/07/07 11:07:32
 
 # prompt for git status
 function git_branch {
 
 ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+branch=${ref#refs/heads/};
 remote=$(git remote -v | grep fetch | cut -d '	' -f1)
 commit=$(git log --pretty=format:'%h' -n 1)
 if [ -n $remote ];then
-    echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+    echo -e "($remote/$branch/\033[1;32m$commit\033[m) ";
     #echo -e "($remote/"${ref#refs/heads/}") ";
 else
-    echo "("${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
+    echo "($branch/\033[1;32m$commit\033[m) ";
     #echo "("${ref#refs/heads/}") ";
 fi
 }
