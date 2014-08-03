@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/02/28 17:42:46
+# Last Update:2014/08/03 23:58:00
 
 function tmux_prompt {
     
@@ -22,7 +22,7 @@ function chtitle {
 function git_branch {
 
 ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-remote=$(git remote -v | grep fetch | cut -d '	' -f1)
+remote=$(git remote -v | grep fetch | tail -n 1 | cut -d '	' -f1)
 #commit=$(git log --pretty=format:'%h' -n 1)
 if [ -n $remote ];then
     #echo -e "($remote/"${ref#refs/heads/}"/\033[1;32m$commit\033[m) ";
