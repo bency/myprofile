@@ -33,8 +33,6 @@ set ruler
 
 set modeline
 
-set autoindent
-
 set enc=utf-8
 
 "set showtabline=2
@@ -252,4 +250,3 @@ fun! PullAndRefresh()
     endfun
 
 nmap <leader>gr call PullAndRefresh()
-filetype indent on
