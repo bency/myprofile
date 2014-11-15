@@ -1,25 +1,37 @@
-" Last Update:2013/11/28 02:30:07
+" Last Update:2014/11/16 02:16:02
 set bg=dark
 
 set et
-
-set nowrap
 
 syntax on
 
 set bs=2
 
+set sw=4
+
+set softtabstop=4
+
+set secure
+
+set cindent
+
+set encoding=utf8
+
+set fileencoding=utf8
+
+"set fileencodings=utf8,cp950,latin1
+
+set expandtab
+
 set nowrap
 
-set cursorline
+"set cursorline
 
 set hlsearch
 
 set ruler
 
 set modeline
-
-set autoindent
 
 set enc=utf-8
 
@@ -49,9 +61,9 @@ if has("autocmd")
 
     autocmd BufRead,BufNewFile *.xaml   set filetype=xml
 
-    autocmd BufRead,BufNewFile *.css    set shiftwidth=2
+    "autocmd BufRead,BufNewFile *.css    set shiftwidth=2
 
-    autocmd BufRead,BufNewFile *.html   set shiftwidth=2
+    "autocmd BufRead,BufNewFile *.html   set shiftwidth=2
 
   augroup END
 
@@ -121,6 +133,14 @@ nmap <c-h> <c-w>h<c-w><bar>
 " move to and maximize the right split 
 
 nmap <c-l> <c-w>l<c-w><bar>
+
+" move screen up and keep cursor position
+
+nmap <c-e> <c-e>j
+
+" move screen up and keep cursor position
+
+nmap <c-y> <c-y>k
 
 set wmw=0                     " set the min width of a window to 0 so we can maximize others
 

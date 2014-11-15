@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/08/04 00:00:28
+# Last Update:2014/11/16 02:17:23
 
 function chtitle {
 
@@ -55,6 +55,53 @@ function git_since_last_commit {
 
         fi
 
+    fi
+}
+
+function new_ticket {
+    if [[ -z "$1" ]] ;then
+        echo "No ticket number specified!";
+    else
+        echo "git push origin master:ticket$1";
+        git push origin master:ticket$1;
+    fi
+}
+
+function got_ticket {
+    if [[ -z "$1" ]] ;then
+        echo "No ticket number specified!";
+    else
+        echo "git checkout ticket$1";
+        git checkout ticket$1;
+    fi
+}
+
+function new_tag {
+
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    branch=${ref#refs/heads/};
+
+    if [ "$branch" != "master" ]; then
+        echo "Not in master";
+        echo "checkout master";
+        git checkout master
+    fi
+
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    new_branch=${ref#refs/heads/};
+
+    if [ "$new_branch" != "master" ]; then
+        echo "Checkout master failed!";
+        return;
+    fi
+
+    if [[ -z "$1" ]];then
+        echo "No ticket number specified!";
+    else
+        echo "git tag -a before$1";
+        git tag before$1 -m bofore$1;
+        echo "git push origin before$1";
+        git push origin before$1;
     fi
 }
 
