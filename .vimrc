@@ -1,4 +1,4 @@
-" Last Update:2014/11/16 02:16:02
+" Last Update:2014/12/02 10:53:56
 set bg=dark
 
 set et
@@ -272,3 +272,6 @@ filetype indent on
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
+
+" pathogen
+execute pathogen#infect()
