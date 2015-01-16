@@ -1,5 +1,5 @@
 # System-wide .bashrc file for interactive bash(1) shells.
-# Last Update:2014/11/16 02:17:23
+# Last Update:2014/08/04 08:28:09
 
 function chtitle {
 
@@ -58,67 +58,20 @@ function git_since_last_commit {
     fi
 }
 
-function new_ticket {
-    if [[ -z "$1" ]] ;then
-        echo "No ticket number specified!";
-    else
-        echo "git push origin master:ticket$1";
-        git push origin master:ticket$1;
-    fi
-}
-
-function got_ticket {
-    if [[ -z "$1" ]] ;then
-        echo "No ticket number specified!";
-    else
-        echo "git checkout ticket$1";
-        git checkout ticket$1;
-    fi
-}
-
-function new_tag {
-
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    branch=${ref#refs/heads/};
-
-    if [ "$branch" != "master" ]; then
-        echo "Not in master";
-        echo "checkout master";
-        git checkout master
-    fi
-
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    new_branch=${ref#refs/heads/};
-
-    if [ "$new_branch" != "master" ]; then
-        echo "Checkout master failed!";
-        return;
-    fi
-
-    if [[ -z "$1" ]];then
-        echo "No ticket number specified!";
-    else
-        echo "git tag -a before$1";
-        git tag before$1 -m bofore$1;
-        echo "git push origin before$1";
-        git push origin before$1;
-    fi
-}
-
 # locale setting
 
 export LC_ALL=zh_TW.UTF-8
 
 export EDITOR=/usr/bin/vim
 
-PS1="\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[00m\]:\[\033[01;34m\]\W \t\[\033[00m\]\n\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\] ➤ "
+PS1=$'\e[01;31m%n\e[01;33m@\e[01;34m%m\e[00m:\e[01;34m%~ %D\e[00m\n'$(git_branch)$'\e[0;33m'$(git_since_last_commit)$'\e[0m '
 
 # Make bash check its window size after a process completes
-shopt -s checkwinsize
+#shopt -s checkwinsize
 
 os=$(uname)
 
-if [ $os == "Linux" ];then
+if [ $os = "Linux" ];then
     alias ls='ls -F --color=always'
 else
     alias ls='ls -GF'
@@ -148,8 +101,8 @@ set -o ignoreeof
 alias grep='grep --color=always '
 
 # C-W rease word till slash
-stty werase undef
-bind '"\C-w":backward-kill-word'
+#stty werase undef
+#bind '"\C-w":backward-kill-word'
 
 alias grep='grep --color=always '
 alias work='cd ~/work'
