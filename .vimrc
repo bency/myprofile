@@ -61,6 +61,8 @@ if has("autocmd")
 
     autocmd BufRead,BufNewFile *.xaml   set filetype=xml
 
+    autocmd BufRead,BufNewFile *.django set filetype=htmldjango
+
     "autocmd BufRead,BufNewFile *.css    set shiftwidth=2
 
     "autocmd BufRead,BufNewFile *.html   set shiftwidth=2
