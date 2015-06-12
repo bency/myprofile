@@ -7,14 +7,6 @@ export PROFILE="$HOME/myprofile"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-host=$(command hostname)
-if [ "$host" = "aqua" ]; then
-    #ZSH_THEME="smt"
-    #ZSH_THEME="Soliah"
-    ZSH_THEME="jonathan"
-else
-    ZSH_THEME="michelebologna"
-fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,11 +48,23 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git git-fast git-extras battery tmux)
 
+host=$(command hostname)
+if [ "$host" = "aqua" ]; then
+    #ZSH_THEME="smt"
+    #ZSH_THEME="Soliah"
+    ZSH_THEME="jonathan"
+    export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
+    export EDITOR='/usr/local/bin/vim'
+else
+    export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin"
+    export EDITOR='/usr/bin/vim'
+    ZSH_THEME="michelebologna"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -72,7 +76,6 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/accou
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='/usr/local/bin/vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -89,6 +92,5 @@ export EDITOR='/usr/local/bin/vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 DISABLE_AUTO_TITLE=true
-HOST=$(hostname)
 export MYSQL_PS1="\u@\h [\d]> "
 export TMUX_TMPDIR=/net/account/pixuser/bency
