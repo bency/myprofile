@@ -87,7 +87,11 @@ function to_unix {
 }
 
 function towork {
-    cd ~/work/$1
+    repo=$(tmux display-message -p '#W')
+    if [ -d $HOME/work/$repo ];then
+        rb $repo
+    fi
 }
+
 rb() { cd $HOME/work/$1; }
 compctl -W $HOME/work/ -/ rb
