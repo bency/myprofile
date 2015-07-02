@@ -83,7 +83,7 @@ function to_date {
 }
 
 function to_unix {
-    date -j -f '%Y%m%d%H%M%S' "$1" +%s;
+    date -jf '%Y%m%d%H%M%S' "$1" +%s;
 }
 
 function towork {
