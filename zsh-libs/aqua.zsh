@@ -87,9 +87,10 @@ function to_unix {
 }
 
 function towork {
-    repo=$(tmux display-message -p '#W')
-    if [ -d $HOME/work/$repo ];then
-        rb $repo
+    p=`pwd`
+    subpath=${p##*work/}
+    if [ -d $HOME/work/$subpath ];then
+        rb $subpath
     fi
 }
 
