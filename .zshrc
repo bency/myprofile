@@ -55,6 +55,7 @@ if [ "$host" = "aqua" ]; then
     ZSH_THEME="jonathan"
     export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
     export EDITOR='/usr/local/bin/vim'
+    export TMUX_TMPDIR=/net/account/pixuser/bency
 else
     export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin"
     export EDITOR='/usr/bin/vim'
@@ -93,4 +94,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 DISABLE_AUTO_TITLE=true
 export MYSQL_PS1="\u@\h [\d]> "
-export TMUX_TMPDIR=/net/account/pixuser/bency
