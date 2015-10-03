@@ -49,18 +49,19 @@ ZSH_CUSTOM=$PROFILE/zsh-libs
 plugins=(git git-fast git-extras battery tmux)
 
 host=$(command hostname)
-if [ "$host" = "aqua" ]; then
-    #ZSH_THEME="smt"
-    #ZSH_THEME="Soliah"
+case $host in
+    "aqua")
     ZSH_THEME="jonathan"
     export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
     export EDITOR='/usr/local/bin/vim'
     export TMUX_TMPDIR=/net/account/pixuser/bency
-else
+        ;;
+    *)
     export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin"
     export EDITOR='/usr/bin/vim'
     ZSH_THEME="michelebologna"
-fi
+        ;;
+esac
 
 source $ZSH/oh-my-zsh.sh
 
