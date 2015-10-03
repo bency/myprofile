@@ -255,3 +255,4 @@ nmap <leader>gr call PullAndRefresh()
 
 " pathogen
 execute pathogen#infect()
+filetype plugin indent on
