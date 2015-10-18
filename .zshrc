@@ -63,8 +63,6 @@ case $host in
         export EDITOR=/usr/local/bin/vim
         ;;
     *)
-        export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin"
-        export EDITOR='/usr/bin/vim'
         ZSH_THEME="michelebologna"
         ;;
 esac
