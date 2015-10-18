@@ -56,7 +56,7 @@ case $host in
         export EDITOR='/usr/local/bin/vim'
         export TMUX_TMPDIR=/net/account/pixuser/bency
         ;;
-    "Bencys-MacbookPro.Pro")
+    "Bencys-MacbookPro.local")
         ZSH_THEME="smt"
         ZSH="$HOME/.oh-my-zsh"
         export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:$HOME/.composer/vendor/bin
