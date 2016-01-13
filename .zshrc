@@ -50,8 +50,8 @@ plugins=(git git-fast git-extras battery tmux)
 
 host=$(command hostname)
 case $host in
-    "aqua")
-        ZSH_THEME="jonathan"
+    "aqua" | "saturn")
+        ZSH_THEME="nicoulaj"
         export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
         export EDITOR='/usr/local/bin/vim'
         ;;
