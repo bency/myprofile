@@ -1,4 +1,4 @@
-" Last Update:2014/12/02 10:53:56
+" Last Update:2015/12/23 14:52:53
 set bg=dark
 
 set et
@@ -19,7 +19,7 @@ set encoding=utf8
 
 set fileencoding=utf8
 
-"set fileencodings=utf8,cp950,latin1
+set fileencodings=utf8,big5,cp950
 
 set expandtab
 
