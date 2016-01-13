@@ -33,11 +33,11 @@ function got_ticket {
     else
         ticket=$1;
     fi
-    echo "git checkout ticket$ticket";
     count=$(git branch -a | grep ticket${ticket}$ | wc -l)
     if [[ $count = 0 ]];then
         new_ticket $ticket
     else
+        echo "git checkout ticket$ticket";
         git checkout ticket$ticket;
     fi
 }
