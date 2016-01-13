@@ -54,7 +54,6 @@ case $host in
         ZSH_THEME="jonathan"
         export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
         export EDITOR='/usr/local/bin/vim'
-        export TMUX_TMPDIR=/net/account/pixuser/bency
         ;;
     "Bencys-MacbookPro.local")
         ZSH_THEME="smt"
