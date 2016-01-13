@@ -256,3 +256,5 @@ nmap <leader>gr call PullAndRefresh()
 " pathogen
 execute pathogen#infect()
 filetype plugin indent on
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <buffer> <C-k> :call pdv#DocumentWithSnip()<CR>
