@@ -94,5 +94,10 @@ function towork {
     fi
 }
 
+function kill-tmux {
+    me=$(whoami)
+    kill -9 `ps aux | grep $me|grep "tmux: client" | grep -v grep | awk '{print $2}'`
+}
+
 rb() { cd $HOME/work/$1; }
 compctl -W $HOME/work/ -/ rb
