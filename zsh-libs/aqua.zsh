@@ -33,7 +33,7 @@ function got_ticket {
     else
         ticket=$1;
     fi
-    count=$(git branch -a | grep ticket${ticket}$ | wc -l)
+    count=$(git branch -a | grep ticket${ticket} | wc -l | tr -d '[[:space:]]')
     if [[ $count = 0 ]];then
         new_ticket $ticket
     else
