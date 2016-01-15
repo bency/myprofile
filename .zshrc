@@ -48,15 +48,14 @@ ZSH_CUSTOM=$PROFILE/zsh-libs
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git git-fast git-extras battery tmux)
 
+ZSH_THEME="nicoulaj"
 host=$(command hostname)
 case $host in
     "aqua" | "saturn")
-        ZSH_THEME="nicoulaj"
         export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/net/account/pixuser/bency/bin"
         export EDITOR='/usr/local/bin/vim'
         ;;
     "Bencys-MacbookPro.local")
-        ZSH_THEME="smt"
         ZSH="$HOME/.oh-my-zsh"
         export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:$HOME/.composer/vendor/bin
         export EDITOR=/usr/local/bin/vim
