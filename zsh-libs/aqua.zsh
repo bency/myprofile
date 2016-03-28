@@ -101,3 +101,7 @@ function kill-tmux {
 
 rb() { cd $HOME/work/$1; }
 compctl -W $HOME/work/ -/ rb
+
+function kill-mosh {
+    kill $(ps -o pid,comm,etimes | grep mosh | sort -k3 | tail -n+2 | sed -e 's/^[ ]*//g' | cut -w -f1)
+}
