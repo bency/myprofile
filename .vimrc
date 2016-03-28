@@ -1,4 +1,4 @@
-" Last Update:2015/12/23 14:52:53
+" Last Update:2016/03/25 02:10:02
 set bg=dark
 
 set et
@@ -210,7 +210,7 @@ map <S-L> gt
 
 nnoremap <silent> <C-t><S-H> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 
-nnoremap <silent> <C-t><S-L> :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <silent> <C-t><S-L> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " :cd. change working directory to that of the current file
 
