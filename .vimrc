@@ -1,4 +1,4 @@
-" Last Update:2016/03/25 02:10:02
+" Last Update:2016/03/29 10:01:13
 set bg=dark
 
 set et
@@ -256,5 +256,6 @@ nmap <leader>gr call PullAndRefresh()
 " pathogen
 execute pathogen#infect()
 filetype plugin indent on
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <C-k> :call pdv#DocumentWithSnip()<CR>
