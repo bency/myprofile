@@ -130,6 +130,12 @@ function 1u04gp {
 rb() { cd $HOME/work/$1; }
 compctl -W $HOME/work/ -/ rb
 
+##
+# pixnetlog 切換到 /net/pixnetlog/ 看指定的 log 記錄
+##
+pixnetlog() { cd /net/pixnetlog/$1; }
+compctl -W /net/pixnetlog/ -/ pixnetlog
+
 function kill-mosh {
     kill $(ps -o pid,comm,etimes | grep mosh | sort -k3 | tail -n+2 | sed -e 's/^[ ]*//g' | cut -w -f1)
 }
