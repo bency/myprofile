@@ -99,6 +99,34 @@ function kill-tmux {
     kill -9 `ps aux | grep $me|grep "tmux: client" | grep -v grep | awk '{print $2}'`
 }
 
+##
+# 1u04gp 建立需要變身功能的 alpha site
+# 以目前 tmux session 的名稱當做票號直接推上該有的 repo 到 alpha site
+#
+
+function 1u04gp {
+    ticket=$(tmux display-message -p '#S');
+    if [[ -z $ticket ]] || [[ $ticket =~ "/[0-9]*/" ]];then
+        echo $ticket;
+        exit;
+    fi
+    echo "pass"
+    exit;
+    orig=$(pwd)
+    echo -e "\033[1;31mdeploy pixmainpage2\033[0m"
+    cd ~/work/pixmainpage2 && git checkout master && git pull && make deploy TICKET=$ticket
+    echo "\033[1;31mdeploy pixpanel2\033[0m"
+    cd ~/work/pixpanel2 && git checkout master && git pull && make deploy TICKET=$ticket
+    echo "\033[1;31mdeploy pixpanel\033[0m"
+    cd ~/work/pixpanel && git checkout master && git pull && make deploy TICKET=$ticket
+    echo "\033[1;31mdeploy api.i.pixnet.cc\033[0m"
+    cd ~/work/pixapi/api.i.pixnet.cc && git checkout master && git pull && make deploy TICKET=$ticket
+    echo "\033[1;31mdeploy pixadmin\033[0m"
+    cd ~/work/pixadmin && git checkout master && git pull && make deploy TICKET=$ticket
+    echo "\033[1;31m請使用 http://adm.p.pixnet.cc.$ticket.alpha.pixnet/account/sudo\033[0m"
+    cd $orig
+}
+
 rb() { cd $HOME/work/$1; }
 compctl -W $HOME/work/ -/ rb
 
