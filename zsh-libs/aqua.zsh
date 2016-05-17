@@ -136,6 +136,12 @@ compctl -W $HOME/work/ -/ rb
 pixnetlog() { cd /net/pixnetlog/$1; }
 compctl -W /net/pixnetlog/ -/ pixnetlog
 
+##
+# staging-log 懶得開 irc 的時候可以直接用 staging-log php-err.log 看錯誤訊息
+# #
+
+staging-log() {ssh staging "tail -f /home/logs/$1"}
+
 function kill-mosh {
     kill $(ps -o pid,comm,etimes | grep mosh | sort -k3 | tail -n+2 | sed -e 's/^[ ]*//g' | cut -w -f1)
 }
