@@ -106,12 +106,10 @@ function kill-tmux {
 
 function 1u04gp {
     ticket=$(tmux display-message -p '#S');
-    if [[ -z $ticket ]] || [[ $ticket =~ "/[0-9]*/" ]];then
+    if [[ -z $ticket ]];then
         echo $ticket;
-        exit;
+        return
     fi
-    echo "pass"
-    exit;
     orig=$(pwd)
     echo -e "\033[1;31mdeploy pixmainpage2\033[0m"
     cd ~/work/pixmainpage2 && git checkout master && git pull && make deploy TICKET=$ticket
