@@ -107,7 +107,7 @@ function kill-tmux {
 function 1u04gp {
     ticket=$(tmux display-message -p '#S');
     if [[ -z $ticket ]];then
-        echo $ticket;
+        echo "required ticket number"
         return
     fi
     orig=$(pwd)
