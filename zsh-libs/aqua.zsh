@@ -149,5 +149,5 @@ compctl -W /net/pixnetlog/ -/ pixnetlog
 staging-log() {ssh staging "tail -f /home/logs/$1"}
 
 function kill-mosh {
-    kill $(ps -o pid,comm,etimes | grep mosh | sort -k3 | tail -n+2 | sed -e 's/^[ ]*//g' | cut -w -f1)
+    kill $(pgrep -u 10070 mosh) > /dev/null 2>&1
 }
