@@ -151,3 +151,7 @@ staging-log() {ssh staging "tail -f /home/logs/$1"}
 function kill-mosh {
     kill $(pgrep -u 10070 mosh) > /dev/null 2>&1
 }
+
+function gv {
+    vim -p $(gst | grep modified | cut -d':' -f2)
+}
