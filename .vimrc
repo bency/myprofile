@@ -259,3 +259,4 @@ filetype plugin indent on
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> <C-k> :call pdv#DocumentWithSnip()<CR>
+nnoremap ,work :tabedit ~/work/
