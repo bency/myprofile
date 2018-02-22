@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export PROFILE="$HOME/myprofile"
+export LC_ALL=zh_TW.UTF-8
+export LANG=zh_TW.UTF-8
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
