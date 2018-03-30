@@ -165,3 +165,39 @@ function gvim {
 function gv {
     vim -p $(gst | grep modified | cut -d':' -f2)
 }
+
+function split-log {
+    if [ -z $1 ];then
+        read -p prefixt "請輸入分割後的檔名前墜"
+    fi
+    if [ -z $prefix ]; then
+        prefix="split"
+    fi
+
+    if [ -z $2 ];then
+        read -p "請輸入欲分割的檔案（絕對路徑）" file
+    fi
+    if [ -z $file ]; then
+        echo "沒有檔案我沒辦法做事喔"
+        return
+    fi
+
+    if [ -z $3 ];then
+        read -p "要以幾行為分割單位？[100000]" lines_per_file
+    fi
+    if [ -z $lines_per_file ];then
+        lines_per_file=100000
+    fi
+
+    echo "參數設定完畢"
+    echo "分割後的檔名為$prefix.[0-9].log"
+    echo "欲分割的檔案為 $file"
+    echo "以每 $lines_per_file 行為切割單位"
+    read "即將開始切割，請確定[Y/n]" confirm
+
+    if [ ! -z $confirm ];then
+        echo "see u"
+    fi
+
+    awk "{filename = $prefixt \".\" int((NR-1)/$lines_per_file) \".log\"; print >> filename}" $file
+}
