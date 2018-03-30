@@ -152,8 +152,14 @@ compctl -W /net/pixnetlog/ -/ pixnetlog
 
 staging-log() {ssh staging "tail -f /home/logs/$1"}
 
+staging-php-log() {ssh staging-php "tail -f /home/logs/$1"}
+
 function kill-mosh {
     kill $(pgrep -u `id -u` mosh) > /dev/null 2>&1
+}
+
+function gvim {
+    vim -c "$(grep -n $1 $2 * | cut -d ':' -f1 -f2 | sed -e 's/\(.*\):\(.*\)/:tabe \1\|:\2/g' | tr '\n' '|')"
 }
 
 function gv {
