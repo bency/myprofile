@@ -13,7 +13,7 @@ function new_ticket {
 
 function rm_ticket {
     if [[ -z "$1" ]] ;then
-        ticket=$(tmux display-message -p '#S');
+        ticket=$(tmux display-message -p '#S' | cut -d'-' -f1);
         echo "rm_ticket: No ticket number specified!";
         echo "use current tmux session name $ticket";
     else
@@ -27,7 +27,7 @@ function rm_ticket {
 
 function got_ticket {
     if [[ -z "$1" ]] ;then
-        ticket=$(tmux display-message -p '#S');
+        ticket=$(tmux display-message -p '#S' | cut -d'-' -f1);
         echo "No ticket number specified!";
         echo "use current tmux session name $ticket";
     else
@@ -62,7 +62,7 @@ function new_tag {
     fi
 
     if [[ -z "$1" ]];then
-        ticket=$(tmux display-message -p '#S');
+        ticket=$(tmux display-message -p '#S' | cut -d'-' -f1);
         echo "No ticket number specified!";
         echo "use current tmux session name $ticket";
     else
